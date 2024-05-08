@@ -49,6 +49,13 @@ private int assigneeId;
         this.assigneeId = assigneeId;
     }
 
+    public Todo(String title, String description, LocalDate deadline, boolean done) {
+        this.title = title;
+        this.description = description;
+        this.deadline = deadline;
+        this.done = done;
+    }
+
 
 
     public int getTodoId() {

@@ -19,7 +19,15 @@ public class App
         prelimTest.create(testPerson1);*/
         TodoItemsDaoImpl prelimTodoTest = new TodoItemsDaoImpl();
         Todo todoTest = new Todo("Package","Wrap up stuff to move out", LocalDate.of(2024,5,10),false, 1);
+        Todo todoTest2 = prelimTodoTest.findById(5);
+        todoTest2.setAssigneeId(0);
+        todoTest2.setDescription("Finally got it working");
+        System.out.println(todoTest2.getAssigneeId());
         //prelimTodoTest.create(todoTest);
-        prelimTodoTest.findAll();
+        //prelimTodoTest.findAll();
+        //System.out.println(prelimTodoTest.findByDoneStatus(false));
+        /*prelimTodoTest.create(todoTest2);
+        prelimTodoTest.findByUnassignedTodoItems();*/
+        prelimTodoTest.update(todoTest2);
     }
 }
