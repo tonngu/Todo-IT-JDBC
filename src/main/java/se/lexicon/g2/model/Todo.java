@@ -1,17 +1,28 @@
 package se.lexicon.g2.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Todo {
 private int todoId;
 private String title;
 private String description;
-private LocalDateTime deadline;
+private LocalDate deadline;
 private boolean done;
+private Person assignee;
 private int assigneeId;
 
 //Constructor for fetching from database
-    public Todo(int todoId, String title, String description, LocalDateTime deadline, boolean done, int assigneeId) {
+    public Todo(int todoId, String title, String description, LocalDate deadline, boolean done, Person assignee) {
+        this.todoId = todoId;
+        this.title = title;
+        this.description = description;
+        this.deadline = deadline;
+        this.done = done;
+        this.assignee = assignee;
+    }
+
+    public Todo(int todoId, String title, String description, LocalDate deadline, boolean done, int assigneeId) {
         this.todoId = todoId;
         this.title = title;
         this.description = description;
@@ -20,14 +31,25 @@ private int assigneeId;
         this.assigneeId = assigneeId;
     }
 
+
     //Constructor for adding a TodoItem to database
-    public Todo(String title, String description, LocalDateTime deadline, boolean done, int assigneeId) {
+    public Todo(String title, String description, LocalDate deadline, boolean done, Person assignee) {
+        this.title = title;
+        this.description = description;
+        this.deadline = deadline;
+        this.done = done;
+        this.assignee = assignee;
+    }
+
+    public Todo(String title, String description, LocalDate deadline, boolean done, int assigneeId) {
         this.title = title;
         this.description = description;
         this.deadline = deadline;
         this.done = done;
         this.assigneeId = assigneeId;
     }
+
+
 
     public int getTodoId() {
         return todoId;
@@ -53,11 +75,19 @@ private int assigneeId;
         this.description = description;
     }
 
-    public LocalDateTime getDeadline() {
+    public LocalDate getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(LocalDateTime deadline) {
+    public Person getAssignee() {
+        return assignee;
+    }
+
+    public void setAssigneeId(int assigneeId) {
+        this.assigneeId = assigneeId;
+    }
+
+    public void setDeadline(LocalDate deadline) {
         this.deadline = deadline;
     }
 
@@ -70,11 +100,11 @@ private int assigneeId;
     }
 
     public int getAssigneeId() {
-        return assigneeId;
+        return this.assigneeId;
     }
 
-    public void setAssigneeId(int assigneeId) {
-        this.assigneeId = assigneeId;
+    public void setAssignee(Person assignee) {
+        this.assignee = assignee;
     }
 
     @Override
@@ -85,7 +115,8 @@ private int assigneeId;
                 ", description='" + description + '\'' +
                 ", deadline=" + deadline +
                 ", done=" + done +
-                ", assigneeId=" + assigneeId +
+                ", assignee=" + assigneeId +
                 '}';
     }
+
 }

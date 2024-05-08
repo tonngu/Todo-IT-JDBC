@@ -1,13 +1,25 @@
 package se.lexicon.g2;
 
+import se.lexicon.g2.data.impl.PeopleDaoImpl;
+import se.lexicon.g2.data.impl.TodoItemsDaoImpl;
+import se.lexicon.g2.model.Person;
+import se.lexicon.g2.model.Todo;
+
+import java.time.LocalDate;
+
 /**
  * Hello world!
  *
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+    public static void main( String[] args ) {
+        /*PeopleDaoImpl prelimTest = new PeopleDaoImpl();
+        Person testPerson1 = new Person("Test", "Testsson");
+        prelimTest.create(testPerson1);*/
+        TodoItemsDaoImpl prelimTodoTest = new TodoItemsDaoImpl();
+        Todo todoTest = new Todo("Package","Wrap up stuff to move out", LocalDate.of(2024,5,10),false, 1);
+        //prelimTodoTest.create(todoTest);
+        prelimTodoTest.findAll();
     }
 }
